@@ -1,8 +1,76 @@
-# React + Vite
+# Configuring jest in React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Install jest
 
-Currently, two official plugins are available:
+```js
+npm i jest -D
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Add test script to package.json
+
+```js
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+```
+
+### Add babel presets .babelrc to your project for JSX support
+
+```js
+yarn add -D @babel/preset-env @babel/preset-react
+```
+
+Create a `.babelrc` file:
+
+```js
+{
+  "presets": [
+    "@babel/preset-env",
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
+}
+```
+
+### Add react testing library dependencies
+
+```js
+npm i @testing-library/react @testing-library/jest-dom -D
+```
+
+### To support web environment API, install jest-environment-jsdom add into jest config in package.json:
+
+```js
+npm i jest-environment-jsdom -D
+```
+
+```js
+  "jest": {
+    "testEnvironment": "jsdom",
+  }
+```
+
+### Configure setupTests.js and add to jest config in package.json:
+
+```js
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
+
+  }
+```
+
+Create setupTests.js file:
+
+```js
+import "@testing-library/jest-dom";
+```
+
+## Start test with: 
+```js
+npm run test
+```
