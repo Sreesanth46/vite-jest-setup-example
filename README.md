@@ -74,3 +74,10 @@ import "@testing-library/jest-dom";
 ```js
 npm run test
 ```
+
+
+## Adding user event to testing library: 
+
+```js
+npm i @testing-library/user-event@latest -D
+```
