@@ -1,10 +1,10 @@
-import AppInput from "./components/input";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 function App() {
   return (
-    <>0
-      <button>Hello world</button>
-      <AppInput />
+    <>
+      <RouterProvider router={router}/>
     </>
   );
 }
