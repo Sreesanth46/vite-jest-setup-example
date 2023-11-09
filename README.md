@@ -81,3 +81,36 @@ npm run test
 ```js
 npm i @testing-library/user-event@latest -D
 ```
+
+
+# Utility functions for querying and interacting with components
+
+- `getBy` queries:
+  - `getByText`
+  - `getByPlaceholderText`
+  - `getByLabelText`
+  - `getByAltText`
+  - `getByTestId`
+  //  throws an error if the element is not found. 
+
+- `queryBy` queries:
+  - return null if element not found 
+
+- `findBy` queries:
+  - asynchronous versions of the `getBy`
+  - should use async await
+
+- `getAllBy`
+
+- `queryAllBy`
+
+- `findAllBy`
+
+- `within`
+  - Allows you to narrow the scope of your queries to a specific element, useful for testing within specific sections of your component.
+
+- `UserEvent`
+
+- `fireEvent`
+
+- `screen`
