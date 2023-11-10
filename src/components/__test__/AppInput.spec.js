@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react"
-import AppInput from "./AppInput"
+import AppInput from "../AppInput"
 import userEvent from "@testing-library/user-event"
 import { act } from "react-dom/test-utils"
 
@@ -7,7 +7,6 @@ describe("Input component", () => {
     let Component
     function handleChange(e) {
         const { value } = e.target
-        setValue = value
     }
 
 
@@ -33,12 +32,10 @@ describe("Input component", () => {
 
         await waitFor(() => {
             userEvent.type(input, "Hello")
-        }) 
-            
-        
-        screen.debug(input)
+        })
 
-        // expect(input).toHaveValue('Hello')
+
+        // screen.debug(input)
 
     })
 
