@@ -82,6 +82,11 @@ npm run test
 npm i @testing-library/user-event@latest -D
 ```
 
+## install @types/jest for utility function suggestions
+```js
+npm install --save-dev @types/jest
+```
+
 
 # Utility functions for querying and interacting with components
 
