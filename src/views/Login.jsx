@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AppInput from "../components/AppInput";
 import AppButton from "../components/AppButton";
+import { LoginApi } from "../services/index";
 
 const LoginForm = () => {
     const [form, setForm] = useState({ username: "", password: "" });
@@ -15,15 +16,25 @@ const LoginForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (form.username.length < 3 || form.password.length < 8) {
             setHasErrors(true);
             return;
         }
+
+        LoginApi(form)
+            .then((res) => {
+                const { accessToken, refreshToken } = res.data;
+                localStorage.setItem({ accessToken, refreshToken });
+                setIsLoggedIn(true);
+            })
+            .catch((err) => {
+                setHasErrors(true);
+            });
+
         console.log("Submitted values", form);
         if (hasErrors) setHasErrors(false);
-        setIsLoggedIn(true);
     };
 
     return (
