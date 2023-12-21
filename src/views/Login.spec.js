@@ -5,8 +5,8 @@ import { LoginApi } from '../services/index';
 
 const responseData = {
     id: 1,
-    email: "louisarrow46@gmail.com",
-    name: "Harvey",
+    email: "example@gmail.com",
+    name: "User 1",
     profilePic: null,
     upi: null,
     phone: "7845128745",
